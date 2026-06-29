@@ -1,0 +1,15 @@
+{
+	"name": "medallion-adf01",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3747ba2a-2b4c-42eb-ae0d-dc83dc40eb91",
+		"tenantId": "adbb2db4-54b3-4d1f-9c6a-8d41e1549378"
+	}
+}
