@@ -6,7 +6,8 @@
       invalidate_hard_deletes=True,
       unique_key='CustomerId',
       strategy='check',
-      check_cols='all'
+      check_cols='all',
+      location_root='abfss://silver@medallionsa01.dfs.core.windows.net/snapshots/'
     )
 }}
 

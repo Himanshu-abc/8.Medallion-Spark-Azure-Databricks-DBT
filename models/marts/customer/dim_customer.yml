@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: "Gold layer dimension table containing current customer information from AdventureWorksLT."
+    config:
+      materialized: table
+      location_root: abfss://gold@medallionsa01.dfs.core.windows.net/marts/
+
+    columns:
+      - name: customer_key
+        description: "Surrogate key for the customer dimension."
+        tests:
+          - unique
+          - not_null
+
+      - name: CustomerId
+        description: "Natural key from source system (AdventureWorksLT)."
+        tests:
+          - unique
+          - not_null
+
+      - name: full_name
+        description: "Concatenated full name of the customer."
+
+      - name: EmailAddress
+        description: "Customer email address."
+
+      - name: is_current
+        description: "Flag to identify the current record (true = active record)."
+
+      - name: gold_loaded_at
+        description: "Timestamp when the record was loaded into the Gold layer."

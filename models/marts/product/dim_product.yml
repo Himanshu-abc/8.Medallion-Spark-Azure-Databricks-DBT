@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: dim_product
+    description: "Gold layer dimension table containing current product information."
+    config:
+      materialized: table
+      location_root: abfss://gold@medallionsa01.dfs.core.windows.net/marts/
+
+    columns:
+      - name: product_key
+        description: "Surrogate key for the product dimension."
+        tests:
+          - unique
+          - not_null
+
+      - name: ProductID
+        description: "Natural key from source system."
+        tests:
+          - unique
+          - not_null
+
+      - name: product_name
+        description: "Name of the product."
+
+      - name: product_category
+        description: "Product category name."
+
+      - name: ListPrice
+        description: "Selling price of the product."
+
+      - name: gold_loaded_at
+        description: "Timestamp when the record was loaded into Gold layer."

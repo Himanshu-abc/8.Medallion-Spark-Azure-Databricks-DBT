@@ -6,7 +6,8 @@
       invalidate_hard_deletes=True,
       unique_key= dbt_utils.generate_surrogate_key(['ProductModelID', 'ProductDescriptionID']),
       strategy='check',
-      check_cols='all'
+      check_cols='all',
+      location_root='abfss://silver@medallionsa01.dfs.core.windows.net/snapshots/'
     )
 }}
 
